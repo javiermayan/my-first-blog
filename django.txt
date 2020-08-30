@@ -1,0 +1,2212 @@
+29-08-20
+
+16:30 - 18:30	2hs
+
+23:05 - 01:05	1h
+
+---------------------
+tutorial.djangogirls.org
+
+Introducción
+
+¿Qué aprenderás con este tutorial?
+
+Cuando termines el tutorial, tendrás una aplicación web sencilla y funcional: tu propio blog. 
+
+cada vez hay más cosas explicadas en el canal de YouTube Coding is for girls (Nota: en inglés).
+
+En cada capítulo hay un enlace que lleva al vídeo correspondiente (si lo hay).
+
+Sobre nosotras y Cómo contribuir
+
+Este tutorial lo mantiene DjangoGirls. 
+
+------------
+
+Instalación 
+
+Si estás haciendo el tutorial en casa, y no en uno de los eventos de Django Girls, puedes saltar este capítulo por completo e ir directamente al capítulo ¿cómo funciona Internet?.
+
+Esto es porque cubrimos las instalaciones de cosas a medida que se requieran en el tutorial -- esta es solamente una página adicional que reúne toda la información de instalación en un solo lugar (lo que es útil para algunos formatos de taller). Puedes escoger instalar todo lo que está en esta página ya mismo si lo deseas. Pero si quieres empezar a aprender cosas antes de instalar un grupo de materiales en tu computadora, salta este capítulo y te explicaremos las partes de la instalación luego, cuando sean necesarias.
+
+
+En este tutorial vas a construir un blog. Según cómo vayas a través del tutorial, serás instruida en cómo instalar varios softwares en tu computadora y configurar algunas cuentas online como sean necesarias. Esta página reune todas las instalaciones e instrucciones del registro en un lugar (el cual es útil para algunos formatos del taller).
+
+
+IDE en la nube (PaizaCloud Cloud IDE, AWS Cloud9)
+
+Nube de IDE es una herramienta que te ofrece un editor de código y el acceso por medio de internet a una computadora donde puedes instalar, escribir y ejecutar el software. 
+
+Durante este tutorial, el IDE en la nube te servirá como tu máquina local. Seguirás ejecutando comandos en una terminal igual que tus compañeros de clase en OS X, Ubuntu, o Windows, pero tu terminal en realidad estará conectada a una computadora trabajando en algún otro lugar, que el IDE en la nube configura para ti. 
+
+Aquí están las instrucciones para IDEs en la nube (PaizaCloud Cloud IDE, AWS Cloud9). Puedes elegir uno de los IDEs en la nube, y seguir sus instrucciones.
+
+PaizaCloud Cloud IDE
+
+    Ve a PaizaCloud Cloud IDE
+    Crea una cuenta
+    Haz clic en Nuevo Servidor y elige la aplicación Django
+    Haz clic en el botón Terminal (en el lado izquierdo de la ventana)
+
+Ahora deberías ver una interfaz con una barra y botones en la izquierda. Haz click en al botón "Terminal" para abrir la ventana de la terminal con un símbolo de sistema como este:
+
+Terminal
+
+$
+
+La terminal en el IDE en la nube PaizaCloud está preparada para ejecutar tus instrucciones. Puedes redimensionar o maximizar la ventana para hacerla un poco más grande.
+
+AWS Cloud9
+
+Actualmente Cloud 9 requiere que te registres con AWS y ingreses la información de la tarjeta de crédito.
+
+    Instala Cloud 9 desde la Chrome web store
+    Ve a c9.io y haz clic en Get started with AWS Cloud9
+    Regístrate en una cuenta AWS (requiere información de tarjeta de crédito, pero puedes usar gratis)
+    En el panel de control AWS, introduz Cloud9 en la barra de búsqueda y haz clic en él
+    En el panel de control de la Cloud 9, haz clic en Create environment
+    Nómbralo django-girls
+    Mientras configuras los ajustes, selecciona Create a new instance for environment (EC2) para "Environment Type" y selecciona el valor t2.micro para "Instance type" (debería decir "Free-tier eligible."). La configuración de ahorro de costes por defecto está bien y puede mantener los otros valores por defecto.
+    Haz clic en Next step
+    Haz clic en Create environment
+
+Ahora deberías ver una interfaz con una barra, una gran ventana principal con algún texto y una ventana pequeña en la parte inferior que se vería así:
+
+bash
+
+yourusername:~/workspace $
+
+El área de abajo es tu terminal. Puedes usar el terminal para enviar instrucciones al ordenador remoto en Cloud 9. Puedes redimensionar o maximizar la ventana para hacerla un poco más grande.
+
+
+Entorno Virtual
+
+Un entorno virtual (también llamado "virtualenv" o "vitual environment" en inglés) es un tipo de caja privada donde podemos introducir código para el proyecto en el cual estemos trabajando. Lo usamos para mantener separados los diferentes trozos de código de nuestros proyectos, de modo que no haya mezclas indeseadas entre los mismos.
+
+Ejecutar:
+
+Cloud 9
+
+mkdir djangogirls
+cd djangogirls
+python3.6 -mvenv myvenv
+source myvenv/bin/activate
+pip install django~=2.2.4
+
+(nota que en la última línea usamos una virgulilla (~) seguida de un signo igual ~=).
+
+
+GitHub
+
+Hazte una cuenta de GitHub.
+
+
+PythonAnywhere
+
+El tutorial de Django Girls incluye una sección en lo que se conoce como Despliegue, lo cual se refiere al proceso de tomar el código que da vida a tu nueva aplicación web y moverlo a un ordenador de acceso público (llamado servidor) para que otras personas puedan ver tu trabajo.
+
+Esta parte del tutorial es algo extraña usando un Chromebook, pues ya estamos usando un computador conectado a Internet (contrario a, por ejemplo, un portátil). Sin embargo, aún es útil, ya que podemos pensar que nuestro espacio de trabajo en Cloud 9 como un repositorio para nuestro trabajo "en progreso" y Python Anywhere como un lugar donde mostrar nuestro trabajo más completo.
+
+Así que, registra una cuenta en Python Anywhere www.pythonanywhere.com.
+
+Muchos de los pasos citados abajo hacen referencia a la "consola", "terminal", "ventana de comandos", o "línea de comandos" -- todos éstos términos significan la misma cosa: una ventana en tu computadora donde puedes introducir comandos. Cuando estés en el tutorial principal, aprenderás más acerca de la línea de comandos. 
+
+Dependiendo de tu versión de Windows y tu teclado, una de las opciones siguientes debería abrir una ventana de comandos (puede que necesites experimentar un poco, pero no se necesita probar todas estas sugerencias):
+
+    Ve al menú o pantalla de Inicio, y escribe "Símbolo del Sistema" en el cuadro de búsqueda.
+    
+	Ve a Menú de inicio → Windows System → Command Prompt.
+    
+	Ve al menú de Inicio → Todos los Programas → Accessorios → Símbolo del Sistema.
+    
+	Ve a la pantalla de Inicio, pasa el ratón sobre la esquina inferior izquierda de la pantalla, y haz click en la flecha hacia abajo (en una pantalla táctil, desliza hacia arriba desde la parte baja de la pantalla). La página de la Aplicación debería abrirse. Haz click en Símbolo del Sistema en la sección Sistema de Windows.
+    
+	Mantén la tecla especial de Windows de tu teclado y pulsa "X". Elige "Símbolo del Sistema" del menú emergente.
+    
+	Mantén pulsada la tecla de Windows y pulsa "R" para abrir una ventana "Ejecutar". Escribe "cmd" en la caja, y haz click en OK.
+
+
+
+Más adelante en este tutorial, necesitarás tener dos consolas de comandos abiertas a la misma vez. Sin embargo, en algunas versiones de Windows, si ya tienes abierta una ventana de comandos e intentas abrir otra usando el mismo método, simplemente maximizará la que ya tienes abierta. ¡Inténtalo ahora en tu ordenador y mira qué ocurre! Si solo se abre una ventana de comandos, intenta alguno de los otros métodos explicados anteriormente. Al menos uno de ellos debería abrir una nueva ventana de comandos.
+
+Opening: OS X
+
+Ve a Aplicaciones → Utilidades → Terminal.
+
+Opening: Linux
+
+Probablemente se encuentre en Aplicaciones → Accesorios → Terminal, o Aplicaciones → Sistema → Terminal, aunque esto dependerá de tu sistema. 
+
+    Para lectores en casa: este capitulo se cubre en el vídeo Installing Python & Code Editor.
+
+    Esta sección está basada en un tutorial de Geek Girls Carrots (https://github.com/ggcarrots/django-carrots)
+
+Django está escrito en Python. Necesitamos Python para hacer cualquier cosa en Django. 
+
+¡Empecemos con instalarlo! Queremos que instales la última versión de Python 3, así que si tienes una versión anterior, necesitarás actualizarla. Si ya tienes la versión 3.4 o una superior, debería ir bien.
+
+Por favor, instala Python normalmente de la siguiente forma, incluso si tienes Anaconda instalada en el ordenador.
+
+Install Python: Windows
+
+Primero comprueba si tu ordenador ejecuta la versión 32 bits de Windows o la de 64, en "Tipo de sistema" en la página de "Acerca de". 
+
+Puedes descargar Python para Windows desde la siguiente web https://www.python.org/downloads/windows/. 
+
+Una cosa para tener en cuenta: 
+
+Durante la instalación, verás una ventana de "Setup". Asegúrate de marcar las casillas "Add Python 3.6 to PATH" o "Add Python to your environment variables" y hacer click en "Install Now", como se muestra aquí (puede que se vea un poco diferente si estás instalando una versión diferente):
+
+No te olvides de agregar Python al Path
+
+
+
+Install Python: Linux
+
+Es muy posible que ya tengas instalado Python de serie. Para verificar que ya lo tienes instalado (y qué versión es), abre una consola y escribe el siguiente comando:
+
+command-line
+
+$ python3 --version
+Python 3.6.1
+
+Si tienes instalada una versión diferente de Python, al menos 3.4.0 (por ejemplo 3.6.0), entonces no tienes que actualizar. Si tu no has instalado Python, o si tu quieres una versión diferente, primero verifica que distribución de Linux estás usando con el siguiente comando:
+
+command-line
+
+$ grep ^NOMBRE= /etc/os-release
+
+Después, dependiendo de el resultado, sigue una de las siguientes guías de instalación bajo ésta sección.
+
+Install Python: Debian or Ubuntu
+
+Escribe este comando en tu consola:
+
+command-line
+
+$ sudo apt install python3
+
+Install Python: Fedora
+
+Usa este comando en tu consola:
+
+command-line
+
+$ sudo dnf install python3
+
+Si estás en versiones antiguas de Fedora, puedes obtener un error que el comando dnf no se encuentra. En ese caso, necesitas usar yum en su lugar.
+
+Install Python: openSUSE
+
+Usa este comando en tu consola:
+
+command-line
+
+$ sudo zypper install python3
+
+Verifica si la instalación fue exitosa abriendo una terminal o consola, y corriendo el comando python3:
+
+command-line
+
+$ python3 --version
+Python 3.6.1
+
+La versión mostrada puede ser diferente desde 3.6.1 -- debería marcar la versión que instalaste.
+
+NOTA: Si está en Windows y recibe un mensaje de error que indica que python3 no se encontró, intente usar python (sin el 3) y compruebe si todavía podría ser una versión de Python que sea 3.4.0 o superior. Si eso tampoco funciona, puede abrir un nuevo símbolo del sistema e intentar nuevamente; Esto sucede si usa un símbolo del sistema abierto antes de la instalación de Python.
+
+
+
+Hay muchos editores diferentes y la elección es principalmente una cuestión de preferencia personal. La mayoría de programadores de Python usan IDEs (Entornos de Desarrollo Integrados) complejos pero muy potentes, como PyCharm. Sin embargo, como principiante, probablemente no es lo más aconsejable; nuestras recomendaciones son igualmente potentes pero mucho más simples.
+
+Abajo presentamos nuestras sugerencias pero también puedes preguntarle a tu mentora cuáles son las suyas -será más fácil que te ayude.
+
+Visual Studio Code
+
+Visual Studio Code es un recurso de edición de código desarrollado por Microsoft para Windows, Linux y macOS. Esto incluye soporte para depuración, control de Git incrustado, sintaxis destacada, completación de código inteligente, fragmentos y refactorización de código.
+
+Descárgalo aquí
+https://code.visualstudio.com/download
+
+
+Atom
+
+Atom es otro editor popular. Es gratis, de código abierto y disponible para Windows, OS X and Linux. Atom está desarrollado por Github.
+
+Descárgalo aquí
+https://atom.io/
+
+
+¿Por qué estamos instalando un editor de código?
+
+Tú podrías estar preguntándote por qué estamos instalando este especializado software editor de código en vez de usar algo como Word o Notepad.
+
+La primera razón es que el código necesita ser texto plano, y el problema con programas como Word y Textedit es que no producen texto plano, sino texto enriquecido (con fuentes y formatos), usando formatos personalizados como RTF ( Formato del Texto Enriquecido, del inglés Rich Text Format).
+
+La segunda razón es que los editores de código están especializados para esta función, así ellos pueden proveer ayuda a características como destacar código con color acorde a su significado, o automáticamente cerrando etiquetas para ti.
+
+Veremos todo esto en acción más adelante. 
+
+
+
+Entorno virtual
+
+Antes de instalar Django, instalaremos una herramienta extremadamente útil que ayudará a mantener tu entorno de desarrollo ordenado en tu computadora. Es posible saltarse este paso, pero es altamente recomendable. ¡Empezar con la mejor configuración posible te ahorrará muchos problemas en el futuro!
+
+Así que, vamos a crear un entorno virtual (también llamado un virtualenv). Virtualenv aísla tu configuración de Python/Django para cada proyecto. Esto quiere decir que cualquier cambio que hagas en un sitio web no afectará a ningún otro que estés desarrollando. Genial, ¿no?
+
+Todo lo que necesitas hacer es encontrar un directorio en el que quieras crear el virtualenv; tu directorio home, por ejemplo. En Windows, puede verse como C:\Users\Name (donde Name es el nombre de tu usuario).
+
+    NOTA: En Windows, asegúrate de que este directorio no contiene caracteres especiales o acentuados; si tu nombre de usuario contiene caracteres acentuados, usa un directorio distinto, por ejemplo C:\djangogirls.
+
+Para este tutorial usaremos un nuevo directorio djangogirls en tu directorio home:
+
+command-line
+
+$ mkdir djangogirls
+$ cd djangogirls
+
+Haremos un virtualenv llamado myvenv. El comando general estará en el formato:
+
+command-line
+
+$ python3 -m venv myvenv
+
+Virtual environment: Windows
+
+Para crear un nuevo virtualenv, necesitas abrir una terminal "command prompt" y ejecutar python -m venv myvenv. Se verá así:
+
+command-line
+
+C:\Users\Name\djangogirls> python -m venv myvenv
+
+Donde myvenv es el nombre de tu virtualenv. Puedes utilizar cualquier otro nombre, pero asegúrate de usar minúsculas y no usar espacios, acentos o caracteres especiales. También es una buena idea mantener el nombre corto. ¡Vas utilizarlo muchas vecesl!
+
+
+Virtual environment: Linux and OS X
+
+Podemos crear un virtualenv en Linux y OS X, es tan sencillo como ejecutar python3 -m venv myvenv. Se verá así:
+
+command-line
+
+$ python3 -m venv myvenv
+
+myvenv es el nombre de tu virtualenv. Puedes usar cualquier otro nombre, pero sólo utiliza minúsculas y no incluyas espacios. 
+
+    NOTA: En algunas versiones de Debian/Ubuntu, puede que obtengas el siguiente error:
+
+    command-line
+
+    The virtual environment was not created successfully because ensurepip is not available.  En sistemas Debian/Ubuntu, tendrás que instalar el paquete python3-venv usando el siguiente comando.
+       apt-get install python3-venv
+    Puede que tengas que usar sudo con este comando.  Después de instalar el paquete python3-venv, vuelve a crear tu entorno virtual.
+
+    En este caso, sigue las instrucciones anteriores e instala el paquete python3-venv:
+
+    command-line
+
+    $ sudo apt install python3-venv
+
+    NOTA: En algunas versiones de Debian/Ubuntu inicializar el entorno virtual de esta manera da el siguiente error:
+
+    command-line
+
+    Error: Command '['/home/eddie/Slask/tmp/venv/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1
+
+    Para evitar esto, utiliza directamente el comando virtualenv.
+
+    command-line
+
+    $ sudo apt-get install python-virtualenv
+    $ virtualenv --python=python3.6 myvenv
+
+    NOTA: Si obtienes un error como
+
+    command-line
+
+    E: Unable to locate package python3-venv
+
+    entonces ejecuta:
+
+    command-line
+
+    sudo apt install python3.6-venv
+
+
+
+Trabajar con virtualenv
+
+El comando anterior creará un directorio llamado myvenv (o cualquier nombre que hayas elegido) que contiene nuestro entorno virtual (básicamente un montón de archivos y carpetas).
+
+Working with virtualenv: Windows
+
+Inicia el entorno virtual ejecutando:
+
+command-line
+
+C:\Users\Name\djangogirls> myvenv\Scripts\activate
+
+    Nota: en 10 de Windows puedes obtener un error en Windows PowerShell que dice execution of scripts is disabled on this system. En este caso, abre otro Windows PowerShell con la opción "Ejecutar como administrador". Luego intenta escribir el siguiente comando antes de inicializar tu entorno virtual:
+
+    command-line
+
+    C:\WINDOWS\system32 > Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+       Execution Policy Change
+       The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose you to the security risks described in the about_Execution_Policies help topic at http://go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy? [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): A
+
+    NOTA: Para usuarios del popular editor VS Code, el cual viene con una terminal integrada basada en el poweshell de windows; si deseas añadir la terminal integrada, puedes arrancar el siguiente comando para activar tu entorno virtual:
+
+    $ . myvenv\Scripts\activate.ps1
+
+    La ventaja es que no tienes que cambiar las ventanas entre el editor de código y la línea de comandos.
+
+
+
+Working with virtualenv: Linux and OS X
+
+Inicia el entorno virtual ejecutando:
+
+command-line
+
+$ source myvenv/bin/activate
+
+¡Recuerda reemplazar myvenv con tu nombre de virtualenv que hayas elegido!
+
+    NOTA: a veces source podría no estar disponible. En ese caso trata hacerlo de esta forma:
+
+    command-line
+
+    $ . myvenv/bin/activate
+
+Sabrás que tienes virtualenv iniciado cuando veas que la línea de comando en tu consola tiene el prefijo (myvenv).
+
+Cuando trabajes en un entorno virtual, python automáticamente se referirá a la versión correcta, de modo que puedes utilizar python en vez de python3.
+
+Ok, tenemos todas las dependencias importantes en su lugar. ¡Finalmente podemos instalar Django!
+
+
+Instalar Django
+
+Ahora que tienes tu virtualenv iniciado, puedes instalar Django.
+
+Antes de hacer eso, debemos asegurarnos que tenemos la última versión de pip, el software que utilizamos para instalar Django:
+
+command-line
+
+(myvenv) ~$ python -m pip install --upgrade pip
+
+
+Instalar paquetes con un fichero de requisitos (requirements)
+
+Un fichero de requisitos (requirements) tiene una lista de dependencias que se deben instalar mediante pip install:
+
+Primero crea un archivo requirements.txt dentro de tu directorio djangogirls, usando el editor de código que instalaste previamente. Lo puedes hacer mediante abriendo un nuevo archivo en el editor de código y guardándolo como requirements.txt en el directorio djangogirls. Tu directorio se verá así:
+
+djangogirls
+└───requirements.txt
+
+Dentro del fichero djangogirls/requirements.txt deberías tener el siguiente texto:
+
+djangogirls/requirements.txt
+
+Django~=2.2.4
+
+Ahora, ejecuta pip install -r requirements.txt para instalar Django.
+
+command-line
+
+(myvenv) ~$ pip install -r requirements.txt
+Collecting Django~=2.2.4 (from -r requirements.txt (line 1))
+  Downloading Django-2.2.4-py3-none-any.whl (7.1MB)
+Installing collected packages: Django
+Successfully installed Django-2.2.4
+
+Installing Django: Windows
+
+    Si obtienes un error cuando llamas al pip en la plataforma de Windows, por favor verifica si el nombre de ruta de tu proyecto contiene espacios, acentos o caracteres especiales (por ejemplo, C:\Usuarios\NombreUsuario\djangogirls). Si los tiene, utiliza otro en su lugar sin espacios, acentos o caracteres especiales (sugerencia: C:\djangogirls). Crea un nuevo virtualenv en el nuevo directorio, luego borra el viejo y trata de escribir el comando anterior otra vez. (Moviendo el directorio virtualenv no funcionará debido a que usa rutas absolutas.)
+
+Installing Django: Windows 8 and Windows 10
+
+    Tu línea de comando puede congelarse luego de intentar instalar Django. Si esto sucede, usa el siguiente comando:
+
+    command-line
+
+    C:\Users\Name\djangogirls> python -m pip install -r requirements.txt
+
+Installing Django: Linux
+
+    Si obtienes un error cuando llamas pip en Ubuntu 12.04, por favor corre python -m pip install -U --force-reinstall pip para reparar la instalación de pip en el virtualenv.
+
+¡Eso es todo! Ahora estás lista (por fin) para crear una aplicación Django!
+
+
+Instalar Git
+
+Installing Git: Windows
+
+Puedes descargar Git desde git-scm.com. 
+
+Puedes hacer click en "Next" en todos los pasos excepto en dos: cuando se te pregunte que selecciones tu editor, selecciona Nano, y en el paso "adjusting your PATH environment", selecciona "Use Git and optional Unix tools from the Windows Command Prompt" (la última opción). 
+
+Aparte de eso, los valores por defecto son correctos. 
+
+"Checkout Windows-style, commit Unix-style line endings" tampoco necesita corrección.
+
+No olvides reiniciar el Símbolo del Sistema o el PowerShell una vez que la instalación se complete con éxito.
+
+
+Installing Git: Debian or Ubuntu
+
+command-line
+
+$ sudo apt install git
+
+
+Installing Git: Fedora
+
+command-line
+
+$ sudo dnf install git
+
+
+Installing Git: openSUSE
+
+command-line
+
+$sudo zypper install git
+
+
+
+Ve a GitHub.com y regístrate con una nueva y gratuita cuenta de usuario. Asegúrate de recordar tu contraseña (añádela a tu gestor de contraseñas, si usas uno).
+
+PythonAnywhere es un servicio para ejecutar código Python en servidores "en la nube". Lo vamos a usar para alojar nuestro sitio para que esté disponible en Internet.
+
+Almacenaremos del blog que estamos construyendo sobre Python Anywhere. Crea una cuenta como "Principiante/Beginner" en Python Anywhere (el modo gratuito está bien, no necesitas una tarjeta de crédito).
+
+    www.pythonanywhere.com
+
+La pagina de entrada de Python Anywhere muestra el botón para crear una cuenta "Principiante"
+
+    Nota Cuando elijas un nombre de usuario, recuerda que la URL de tu blog tendrá la forma tunombredeusuario.pythonanywhere.com, así que lo mejor será usar tu apodo o elegir un nombre que indique de qué trata tu blog. Asegúrate también de recordar tu contraseña (añádela a tu gestor de contraseñas, si usas uno).
+
+
+
+Crear un token para la API de PythonAnywhere
+
+Este paso solo necesita ser completado una vez. Una vez que te hayas registrado en PythonAnywhere, serás llevado a tu tablón principal. Encontrarás el enlace a la página de tu "Cuenta" en la esquina superior derecha:
+
+Enlace de cuenta en la parte superior derecha de la página
+
+Después selecciona la lengueta llamada "API token", y haz click en el botón que dice "Crear nueva API token"
+
+Lengüeta de la API token en la página de cuenta
+
+Felicitaciones, ¡tú tienes todo configurado y listo para avanzar! 
+
+-------------------
+
+Introducción a la línea de comandos
+
+Directorio actual
+
+Sería bueno saber dónde estamos ahora, ¿Correcto? Veamos. Escribe éste comando y presiona enter:
+
+Current directory: OS X and Linux
+
+command-line
+
+$ pwd
+/Users/olasitarska
+
+    Nota: 'pwd' es para imprimir el directorio de trabajo (print working directory).
+
+Current directory: Windows
+
+command-line
+
+> cd 
+C:\Users\olasitarska
+
+    Nota: 'cd' es para cambiar de directorio (change directory). Con la consola tu puedes usar pwd solo con Linux o Mac OS X.
+
+
+Una vez que abres la consola o la línea de comandos, usualmente inicias en tu directorio principal.
+
+
+Aprende más sobre un comando
+
+¡Muchos comandos pueden escribirse en el prompt que tiene construido una ayuda que puedes leer! Por ejemplo, aprende más acerca de el comando del directorio actual:
+
+Command help: OS X and Linux
+
+OS X y Linux tienen un comando man, el cual te da una ayuda en comandos. Intenta man pwd y ve qué dice, o coloca man antes de otro comando para ver su ayuda. La salida de man nomalmentes es paginada. Usa la barra de espacio para moverte a la siguiente página, y q para salir de la ayuda.
+
+Command Help: Windows
+
+Añade un sufijo /? para más comandos que se imprimirán en la página de ayuda. 
+
+Puedes hacer scroll a la ventana de comandos para verlos todos. Intenta cd /?
+
+
+Listar ficheros y directorios
+
+Así que, ¿en qué estamos? Estaría bien saberlo. Veamos:
+
+List files and directories: OS X and Linux
+
+command-line
+
+$ ls
+Applications
+Desktop
+Downloads
+Music
+...
+
+List files and directories: Windows
+
+command-line
+
+> dir
+
+
+
+Cambiar el directorio actual
+
+Ahora, vamos a nuestro directorio de escritorio:
+
+Change current directory: OS X
+
+command-line
+
+$ cd Desktop
+
+Change current directory: Linux
+
+command-line
+
+$ cd Escritorio
+
+Nota que el nombre del directorio "Escritorio" puede ser traducido al lenguaje de tu cuenta de Linux. Si ese es el caso, necesitarás reemplazar Escritorio con la traducción del nombre; por ejemplo, Desktop para el inglés.
+
+
+Change current directory: Windows
+
+command-line
+
+> cd Escritorio
+
+para ir directamente a una carpeta: 
+
+> cd C:\Users\olasitarska\Desktop
+
+C:\Users\arjama\Desktop>
+
+PRO tip: si escribes cd D y luego presionas tab en tu teclado, la línea de comandos automáticamente llenará el resto de el nombre por el que puedes navegar. Si hay mas que una carpeta iniciando con "D", presiona la tecla tab dos veces para obtener una lista de opciones.
+
+cls
+limpia la pantalla de la consola
+
+
+Crear un directorio
+
+
+Create directory: OS X and Linux
+
+command-line
+
+$ mkdir practice
+
+Create directory: Windows
+
+command-line
+
+> mkdir practice
+
+Este pequeño comando creará una carpeta con el nombre práctica en tu computador. ¡Puedes verificar si está allí en tu Escritorio o ejecutando uno de los siguientes comandos ls o dir! Inténtalo. :)
+
+PRO tip: Si no quieres escribir el mismo comando una y otra vez, intenta presionando la flecha arriba y flecha abajo en tu teclado para regresar a través de los comandos recientemente usados.
+
+
+Limpieza
+
+
+
+    Atención: Si eliminas los archivos usando del, rmdir o rm no se podrán recuperar, esto significa ¡el borrado de los archivos será para siempre! Sé muy cuidados@ con este comando.
+
+Delete directory: Windows Powershell, OS X and Linux
+
+command-line
+
+$ rm -r practice
+
+Delete directory: Windows Command Prompt
+
+command-line
+
+> rmdir /S practica
+practica, ¿Estás segur@<Y/N>? Y
+
+¡Hecho! Estás seguro que lo eliminaste realmente, verifica:
+
+Check deletion: OS X and Linux
+
+
+Comando (Windows) 	Comando (Mac OS / Linux) 	Descripción 	Ejemplo
+exit 	exit 	Cierra la ventana 	exit
+cd 	cd 	Cambia el directorio 	cd test
+cd 	pwd 	Mostrar el directorio actual 	cd (Windows) o pwd (Mac OS / Linux)
+dir 	ls 	Lista directorios/archivos 	dir
+copy 	cp 	Copia de archivos 	copy c:\test\test.txt c:\windows\test.txt
+move 	mv 	Mueve archivos 	move c:\test\test.txt c:\windows\test.txt
+mkdir 	mkdir 	Crea un nuevo directorio 	mkdir testdirectory
+rmdir (o del) 	rm 	Eliminar un archivo 	del c:\test\test.txt
+rmdir /S 	rm -r 	Eliminar un Directorio 	rm -r testdirectory
+[CMD] /? 	man [CMD] 	Obtener ayuda para un comando 	cd /? (Windows) o man cd (Mac OS / Linux)
+
+el linkk ss64.com 
+contiene una referencia completa de comandos para todos los sistemas operativos.
+
+-------------------------------
+
+Introducción a Python 
+
+La Consola de Python
+
+Para empezar a jugar con Python, tenemos que abrir una línea de comandos en nuestra computadora.
+
+Queremos abrir una consola de Python, así que escribe python en Windows o python3 en Mac OS/Linux y pulsa intro
+
+$ python3
+Python 3.6.1 (...)
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
+¡Tu primer comando en Python!
+
+Después de ejecutar el comando de Python, el cursor cambiará a >>>. Para nosotros esto significa que por ahora sólo podemos utilizar comandos del lenguaje Python. No tienes que escribir e>>> pues Python lo hará por ti.
+
+Si deseas salir de la consola de Python en cualquier momento, solo escribe exit() o usa el atajo Ctrl + Z para Windows y Ctrl + D para Mac/Linux. Luego no verás más >>>
+
+
+Vamos a comenzar escribiendo algo de matemática, escribe 2 + 3 y oprime la tecla enter.
+
+command-line
+
+>>> 2 + 3
+5
+
+¡Qué bien! ¿Ves cómo salió la respuesta? ¡Python sabe matemática! Puedes probar otros comandos como:
+
+    4 * 5
+    5 - 1
+    40 / 2
+
+
+Para realizar una operación exponencial, digamos 2 elevado al cubo, escribimos:
+
+command-line
+
+>>> 2 ** 3
+8
+
+
+Cadena de caracteres
+
+¿Qué tal tu nombre? Escribe tu nombre entre comillas, así:
+
+command-line
+
+>>> "Ola"
+'Ola'
+
+¡Has creado tu primera cadena de texto! La misma es una secuencia de caracteres que puede ser procesada por una computadora. La cadena de texto (o string, en inglés) debe comenzar y terminar con el mismo carácter. Pueden ser comillas simples (') o dobles (") (¡no hay ninguna diferencia!) Las comillas le dicen a Python que lo que está dentro de ellas es una cadena de texto.
+
+
+Las cadenas pueden estar concatenadas. Prueba esto:
+
+command-line
+
+>>> "Hola " + "Ola"
+'Hola Ola'
+
+También puedes multiplicar las cadenas por un número:
+
+command-line
+
+>>> "Ola" * 3
+'OlaOlaOla'
+
+Si necesitas poner un apóstrofe dentro de una cadena, hay dos formas de hacerlo.
+
+Usar comillas dobles:
+
+command-line
+
+>>> "Runnin' down the hill"
+"Runnin' down the hill"
+
+o escapar el apóstrofe con la diagonal inversa (``):
+
+command-line
+
+>>> 'Runnin\' down the hill'
+"Runnin' down the hill"
+
+Bien, ¿eh? Para ver tu nombre en letras mayúsculas, escribe:
+
+command-line
+
+>>> "Ola".upper()
+'OLA'
+
+¡Acabas de usar el método upper sobre tu cadena de texto! Un método (como upper()) es un conjunto de instrucciones que Python tiene que realizar sobre un objeto determinado ("Ola") una vez que se le invoca.
+
+Si quieres saber el número de letras que contiene tu nombre, ¡también hay una función para eso!
+
+command-line
+
+>>> len("Ola")
+3
+
+Te preguntarás ¿por qué a veces se invoca a las funciones con un . al final de una cadena (como "Ola".upper()) y a veces se invoca a la función colocando la cadena entre paréntesis? Bueno, en algunos casos las funciones pertenecen a los objetos, como upper(), que sólo puede ser utilizada sobre cadenas. En este caso, a la función le llamamos método. Otra veces, las funciones no pertenecen a ningún objeto específico y pueden ser usadas en diferentes objetos, como len(). Esta es la razón de por qué estamos pasando "Ola" como un parámetro a la función len
+
+Errores
+
+Vamos a intentar algo nuevo. ¿Podemos obtener la longitud de un número de la misma manera que pudimos averiguar la longitud de nuestro nombre? Escribe len(304023) y pulsa enter:
+
+PythonAnywhere command-line
+
+>>> len(304023)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: object of type 'int' has no len()
+
+¡Pues tenemos nuestro primer error! El icono de es nuestra manera de darte un aviso de que el código que estás ejecutando no funciona como se espera. ¡Cometer errores (incluso algunos intencionales) son una parte importante del aprendizaje!
+
+Dicho error dice que los objetos de tipo "int" (números enteros) no tienen longitud. ¿Qué podemos hacer ahora? ¿Quizás podamos escribir el número como una cadena? Las cadenas tienen longitud, ¿verdad?
+
+command-line
+
+>>> len(str(304023))
+6
+
+¡Funcionó! Hemos utilizado la función str dentro de la función len. str() convierte todo en cadenas de texto.
+
+    La función str convierte cosas en cadenas, strings
+    
+	La función int convierte cosas en enteros, integers
+
+Importante: podemos convertir números en texto, pero no necesariamente podemos convertir texto en números - ¿qué sería int('hello')?
+
+da error 
+
+>>> int('hello')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: 'hello'
+
+
+Variables
+
+Los programadores usan estas variables para almacenar datos, hacer su código más legible y para no tener que recordar qué es cada cosa.
+
+Supongamos que queremos crear una nueva variable llamada name:
+
+command-line
+
+>>> name = "Ola"
+
+Indicamos que el nombre es igual a Ola.
+
+
+Como habrás notado, tu programa no devolvió nada como lo hacía antes. Así que ¿cómo sabemos que la variable existe realmente? Escribe name y pulsa intro:
+
+command-line
+
+>>> name
+'Ola'
+
+
+Siempre puedes cambiar a lo que se refiere:
+
+command-line
+
+>>> name = "Sonja"
+>>> name
+'Sonja'
+
+También puedes usarla dentro de funciones:
+
+command-line
+
+>>> len(name)
+5
+
+Increíble, ¿verdad? Por supuesto, las variables pueden ser cualquier cosa, ¡también números! Prueba esto:
+
+command-line
+
+>>> a = 4
+>>> b = 6
+>>> a * b
+24
+
+Pero ¿qué pasa si usamos el nombre equivocado? ¿Puedes adivinar qué pasaría? ¡Vamos a probar!
+
+command-line
+
+>>> city = "Tokyo"
+>>> ctiy
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'ctiy' is not defined
+
+¡Un error! Como puedes ver, Python tiene diferentes tipos de errores y este se llama NameError. Python te dará este error si intentas utilizar una variable que no ha sido definida aún. Si más adelante te encuentras con este error, verifica tu código para ver si no has escrito mal una variable.
+
+
+La función print
+
+Intenta esto:
+
+command-line
+
+>>> name = 'Maria'
+>>> name
+'Maria'
+>>> print(name)
+Maria
+
+Cuando sólo escribes name, el intérprete de Python responde con la representación en forma de cadena de la variable 'name', que son las letras M-a-r-i-a, rodeadas de comillas simples ''. Cuando dices print(name), Python va a "imprimir" el contenido de la variable a la pantalla, sin las comillas, que es más claro.
+
+Como veremos después, print() también es útil cuando queremos imprimir cosas desde adentro de las funciones, o cuando queremos imprimir cosas en múltiples líneas.
+
+Listas
+
+Además de cadenas y enteros, Python tiene toda clase de tipos de objetos diferentes. Ahora vamos a introducir uno llamado list. Las listas son exactamente lo que piensas que son: objetos que son listas de otros objetos. :)
+
+Anímate y crea una lista:
+
+command-line
+
+>>> []
+[]
+
+Sí, esta lista está vacía. No es muy útil, ¿verdad? Vamos a crear una lista de números de lotería. No queremos repetirnos todo el rato, así que la pondremos también en una variable:
+
+command-line
+
+>>> lottery = [3, 42, 12, 19, 30, 59]
+
+Muy bien, ¡tenemos una lista! ¿Qué podemos hacer con ella? Vamos a ver cuántos números de lotería hay en la lista. ¿Tienes alguna idea de qué función deberías usar para eso? ¡Ya lo sabes!
+
+>>> len(lottery)
+6
+
+¡Sí! len() puede darte el número de objetos en una lista. Útil, ¿verdad? Tal vez la ordenemos ahora:
+
+command-line
+
+>>> lottery.sort()
+
+No devuelve nada, sólo ha cambiado el orden en que los números aparecen en la lista. Vamos a imprimirla otra vez y ver qué ha pasado:
+
+command-line
+
+>>> print(lottery)
+[3, 12, 19, 30, 42, 59]
+
+
+Como puedes ver, los números de tu lista ahora están ordenados de menor a mayor. ¡Enhorabuena!
+
+¿Te gustaría invertir ese orden? ¡Vamos a hacerlo!
+
+command-line
+
+>>> lottery.reverse()
+>>> print(lottery)
+[59, 42, 30, 19, 12, 3]
+
+Si quieres añadir algo a tu lista, puedes hacerlo escribiendo este comando:
+
+command-line
+
+>>> lottery.append(199)
+>>> print(lottery)
+[59, 42, 30, 19, 12, 3, 199]
+
+
+Si deseas mostrar sólo el primer número, puedes hacerlo mediante el uso de indexes (en español, índices). Un índice es el número que te dice dónde en una lista aparece un ítem. Las programadoras y los programadores prefieren comenzar a contar desde 0, por lo tanto el primer objeto en tu lista está en el índice 0, el próximo esta en el 1, y así sucesivamente. Intenta esto:
+
+command-line
+
+>>> print(lottery[0])
+59
+>>> print(lottery[1])
+42
+
+Para borrar algo de tu lista tendrás que usar índices como aprendimos anteriormente y la función pop(). Vamos a tratar de ejemplificar esto y reforzaar lo que aprendimos anteriormente; vamos a borrar el primer número de nuestra lista.
+
+command-line
+
+>>> print(lottery)
+[59, 42, 30, 19, 12, 3, 199]
+>>> print(lottery[0])
+59
+>>> lottery.pop(0)
+59
+>>> print(lottery)
+[42, 30, 19, 12, 3, 199]
+
+Puedes encontrar una lista de todos los métodos disponibles para listas en este capítulo de la documentación de Python: https://docs.python.org/3/tutorial/datastructures.html
+
+
+Diccionarios
+
+Un diccionario es similar a una lista, pero accedes a valores usando una llave en vez de un índice. Una llave puede ser cualquier cadena o número. La sintaxis para definir un diccionario vacío es:
+
+command-line
+
+>>> {}
+{}
+
+Esto demuestra que acabas de crear un diccionario vacío.
+
+Ahora, trata escribiendo el siguiente comando (intenta reemplazando con tu propia información):
+
+command-line
+
+>>> participant = {'name': 'Ola', 'country': 'Poland', 'favorite_numbers': [7, 42, 92]}
+
+Con este comando, acabas de crear una variable llamada participant con tres pares llave-valor:
+
+    La llave name apunta al valor 'Ola' (un objeto string),
+    country apunta a 'Poland' (otro string),
+    y favorite_numbers apunta a [7, 42, 92] (una list con tres números en ella).
+
+Puedes verificar el contenido de claves individuales con esta sintaxis:
+
+command-line
+
+>>> print(participant['name'])
+Ola
+
+
+Lo ves, es similar a una lista. Pero no necesitas recordar el índice - sólo el nombre.
+
+¿Qué pasa si le pedimos a Python el valor de una clave que no existe? ¿Puedes adivinar? ¡Pruébalo y verás!
+
+command-line
+
+>>> participant['age']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'age'
+
+¡Mira, otro error! Este es un KeyError. Python te ayuda y te dice que la llave 'age' no existe en este diccionario.
+
+
+¿Cuando deberías usar un diccionario o una lista? 
+
+
+    ¿Sólo necesitas una secuencia ordenada de elementos? Usa una lista.
+    
+	¿Necesitas asociar valores con claves, así puedes buscarlos eficientemente (usando las claves) más adelante? Utiliza un diccionario.
+
+Los diccionarios, como las listas, son mutables, lo que quiere decir que pueden ser modificados después de ser creados. Puedes agregar nuevos pares llave/valor a un diccionario luego de crearlo, como:
+
+command-line
+
+>>> participant['favorite_language'] = 'Python'
+
+Como las listas, usando el método len() en los diccionarios devuelven el número de pares llave-valor en el diccionario. 
+
+command-line
+
+>>> len(participant)
+4
+
+
+Puedes utilizar el comando pop() para borrar un elemento en el diccionario. Por ejemplo, si deseas eliminar la entrada correspondiente a la clave 'favorite_numbers', tienes que escribir el siguiente comando:
+
+command-line
+
+>>> participant.pop('favorite_numbers')
+[7, 42, 92]
+>>> participant
+{'country': 'Poland', 'favorite_language': 'Python', 'name': 'Ola'}
+
+Como puedes ver en la salida, el par de llave-valor correspondiente a la llave 'favorite_numbers' ha sido eliminado.
+
+Además de esto, también puedes cambiar un valor asociado a una llave ya creada en el diccionario. Escribe:
+
+command-line
+
+>>> participant['country'] = 'Germany'
+>>> participant
+{'country': 'Germany', 'favorite_language': 'Python', 'name': 'Ola'}
+
+Como puedes ver, el valor de la llave 'country' ha sido modificado de 'Poland' a 'Germany'
+
+
+Compara cosas
+
+Buena parte de la programación incluye comparar cosas. ¿Qué es lo más fácil para comparar? Números, por supuesto. Vamos a ver cómo funciona:
+
+command-line
+
+>>> 5 > 2
+True
+>>> 3 < 1
+False
+>>> 5 > 2 * 2
+True
+>>> 1 == 1
+True
+>>> 5 != 2
+True
+
+¿Te preguntas por qué pusimos dos signos igual == al lado del otro para comparar si los números son iguales? Utilizamos un solo = para asignar valores a las variables. Siempre, siempre es necesario poner dos == Si deseas comprobar que las cosas son iguales entre sí. También podemos afirmar que las cosas no son iguales a otras. Para eso, utilizamos el símbolo !=, como mostramos en el ejemplo anterior.
+
+
+Da dos tareas más a Python:
+
+command-line
+
+>>> 6 >= 12 / 2
+True
+>>> 3 <= 2
+False
+
+¿Quieres hacer uno más? Intenta esto:
+
+command-line
+
+>>> 6 > 2 and 2 < 3
+True
+>>> 3 > 2 and 2 < 1
+False
+>>> 3 > 2 or 2 < 1
+True
+
+Puedes darle a Python todos los números para comparar que quieras, y siempre te dará una respuesta. 
+
+
+
+    and - si utilizas el operador and, ambas comparaciones deben ser True para que el resultado de todo el comando sea True
+    
+	or - si utilizas el operador or, sólo una de las comparaciones tiene que ser True para que el resultado de todo el comando sea True
+
+
+¿Has oído la expresión "comparar manzanas con naranjas"? Vamos a probar el equivalente en Python:
+
+command-line
+
+>>> 1 > 'django'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: '>' not supported between instances of 'int' and 'str'
+
+Aquí verás que al igual que en la expresión, Python no es capaz de comparar un número (int) y un string (str). En cambio, muestra un TypeError y nos dice que los dos tipos no se pueden comparar.
+
+
+Boolean
+
+Incidentalmente, acabas de aprender sobre un nuevo tipo de objeto en Python. Se llama Boolean (booleano).
+
+Hay sólo dos objetos booleanos:
+
+    True - verdadero
+    False - falso
+
+Pero para que Python entienda esto, siempre los tienes que escribir de modo 'True' (la primera letra en mayúscula, con el resto de las letras en minúscula). true, TRUE, y tRUE no funcionarán – solamente True es correcta. (Lo mismo aplica también para 'False'.)
+
+Los valores booleanos pueden ser variables, también. Ve el siguiente ejemplo:
+
+command-line
+
+>>> a = True
+>>> a
+True
+
+También puedes hacerlo de esta manera:
+
+command-line
+
+>>> a = 2 > 5
+>>> a
+False
+
+
+Para salir del intérprete de Python que hemos estado usando, escribe exit()
+
+command-line
+
+>>> exit()
+$
+
+Esto te llevará de vuelta a la línea de comandos.
+
+
+Hasta ahora hemos escrito todo nuestro código Python en el intérprete, lo cual nos limita a ingresar una línea de código a la vez. Normalmente los programas son guardados en archivos y son ejecutados por el intérprete o compilador de nuestro lenguaje de programación. Hasta ahora, hemos estado corriendo nuestros programas de a una línea por vez en el intérprete de Python. Necesitaremos más de una línea de código para las siguientes tareas, entonces necesitaremos hacer rápidamente lo que sigue:
+
+    Salir del intérprete de Python
+    Abrir el editor de texto de nuestra elección
+    Guardar algo de código en un nuevo archivo de Python
+    ¡Ejecutarlo!
+
+
+Ahora tenemos que guardar el archivo y asignarle un nombre descriptivo. Vamos a llamar al archivo python_intro.py y guardarlo en tu escritorio. Podemos nombrar el archivo como queramos, pero la parte importante es asegurarse de que termina en .py. La extensión .py le dice a nuestro sistema operativo que es un archivo ejecutable de python y Python lo puede ejecutar.
+
+Con el archivo guardado, ¡es hora de ejecutarlo! Utilizando las habilidades que has aprendido en la sección de línea de comandos, utiliza la terminal para cambiar los directorios e ir al escritorio.
+
+
+Change directory: Linux
+
+En Linux, será así:
+
+command-line
+
+$ cd ~/Desktop
+
+(Recuerde que la palabra "Desktop" puede traducirse a su idioma local.)
+
+Change directory: Windows Command Prompt
+
+En la consola de Windows, ésto será como:
+
+command-line
+
+> cd %HomePath%\Desktop
+
+Change directory: Windows Powershell
+
+Y en Windows Powershell, será así:
+
+command-line
+
+> cd $Home\Desktop
+
+
+Ahora usa Python para ejecutar el código en el archivo como esto:
+
+command-line
+
+$ python3 python_intro.py
+Hello, Django girls!
+
+
+cd E:\python\django\python_intro.py
+
+e:\python\django>python python_intro.py
+
+
+If … elif … else
+
+python python_intro.py
+
+¿Notas cómo estamos indentando la siguiente línea de código con 4 espacios? Nosotros necesitamos hacer esto para que Python comprenda que el código se ejecuta si el resultado es verdadero. Tú puedes poner un espacio, pero prácticamente todos los programadores en Python ponen 4 espacios para hacer el código más legible. Un simple tabulador también contará como 4 espacios tan largos como tu editor de texto esté configurado. Cuando hagas tu elección, ¡no la cambies! Si ya identaste con 4 espacios, sigue haciendo futuras identaciones con 4 espacios también, de otra forma, puedes encontrar problemas.
+
+
+¿Qué pasa si una condición no es verdadera?
+
+
+En previos ejemplos, el código fue ejecutado solamente cuando las condiciones eran Verdaderas. Pero Python también tiene sentencias elif y else:
+
+python_intro.py
+
+if 5 > 2:
+    print('5 is indeed greater than 2')
+else:
+    print('5 is not greater than 2')
+
+Cuando ésto se ejecuta, imprimirá:
+
+command-line
+
+$ python3 python_intro.py
+5 is indeed greater than 2
+
+
+e:\python\django>python python_intro.py
+
+Si 2 era mayor que el número 5, entonces el segundo comando sería ejecutado. Veamos cómo elif funciona:
+
+python_intro.py
+
+name = 'Sonja'
+if name == 'Ola':
+    print('Hey Ola!')
+elif name == 'Sonja':
+    print('Hey Sonja!')
+else:
+    print('Hey anonymous!')
+
+y ejecuta:
+
+command-line
+
+$ python3 python_intro.py
+
+python python_intro.py
+
+Hey Sonja!
+
+Tú puedes añadir tantas sentencias elif como quieras, luego de tu sentencia inicial if.
+
+
+Comentarios
+
+Los comentarios son líneas que comienzan con #. Tú puedes escribir lo que quieras tras el # y Python lo ignorará.
+
+
+¡Tus propias funciones!
+
+
+Una función es una secuencia de instrucciones que Python debería ejecutar. 
+
+Cada función en Python inicia con la palabra clave def, el nombre es dado, y puede tener algunos parámetros. Veamos. 
+
+Reemplaza el código en python_intro.py con lo siguiente:
+
+python_intro.py
+
+def hi():
+    print('Hi there!')
+    print('How are you?')
+
+hi()
+
+Tú puedes preguntar por qué hemos escrito el nombre de la función en la parte inferior del archivo. Esto es porque Python lee el archivo y lo ejecuta de arriba a bajo. Así en orden para usar nuestra función, tenemos que re-escribirlo en la parte inferior.
+
+python python_intro.py
+
+Nota: si ésto no funciona, ¡Tranquil@! La salida te ayudará a entender por qué:
+
+    Si te sale NameError, probablemente significa que escribiste algo mal, así que deberias comprobar si utilizaste el mismo nombre para crear la función con def hi(): y al llamarla con hi().
+    Si te sale un IndentationError, comprueba que las líneas del print tienen el mismo espacio en blanco al comienzo de línea: python requiere que todo el código dentro de la función esté perfectamente alineado.
+    Si no hay ninguna salida, comprueba que el último hi() no esté identado - si lo está, esa línea también será parte de la función, y nunca se ejecutará.
+
+
+Construyamos nuestra primera función con parámetros. Cambiaremos el ejemplo anterior - una función que dice 'hola' para la persona que lo ejecuta - con un nombre:
+
+python_intro.py
+
+def hi(name):
+
+Como puedes ver, ahora le dimos a nuestra función un parámetro que llamamos nombre:
+
+python_intro.py
+
+def hi(name):
+    if name == 'Ola':
+        print('Hi Ola!')
+    elif name == 'Sonja':
+        print('Hi Sonja!')
+    else:
+        print('Hi anonymous!')
+
+hi()
+
+
+python python_intro.py
+
+$ python3 python_intro.py
+Traceback (most recent call last):
+File "python_intro.py", line 10, in <module>
+  hi()
+TypeError: hi() missing 1 required positional argument: 'name'
+
+Oops, un error. Por suerte, Python nos da un útil y agradable mensaje de error. Este nos dice que la función hi() (que definimos) tiene un argumento requerido (llamado nombre) y que olvidamos pasarlo cuando llamamos a la función. Configuremos esto en la parte inferior del archivo:
+
+def hi(name):
+    if name == 'Ola':
+        print('Hi Ola!')
+    elif name == 'Sonja':
+        print('Hi Sonja!')
+    else:
+        print('Hi anonymous!')
+
+hi(name)
+
+Ahora, ¿qué piensas que sucederá si escribes otro nombre allí? (No Ola o Sonja.) Inténtalo y comprueba si estás en lo correcto. Debería imprimir esto:
+
+command-line
+
+Hi anonymous!
+
+
+Hacer algo más inteligente - hay más nombres que dos, y escribir una condición para cada uno sería difícil, ¿Verdad? Reemplaza el contenido de tu archivo con lo siguiente:
+
+python_intro.py
+
+def hi(name):
+    print('Hi ' + name + '!')
+
+hi("Rachel")
+
+Llamarémos al código ahora:
+
+command-line
+
+$ python3 python_intro.py
+Hi Rachel!
+
+¡Felicidades! ¡Ya aprendíste cómo escribir funciones! :)
+
+python python_intro.py
+
+
+Bucles
+
+Los programadores no les gusta repetir. Programar es todo acerca de automatizar cosas, así que no queremos recibir a cada persona por su nombre manualmente, ¿verdad? Allí es dónde los ciclos vienen a manejarse.
+
+¿Aún recuerdas las listas? Hagamos una lista de niñas:
+
+girls = ['Rachel', 'Monica', 'Phoebe', 'Ola', 'You']
+
+
+Queremos recibir a todos ellos con sus nombres. Tenemos la función hola para hacerlo, así que usémosla en un ciclo:
+
+python_intro.py
+
+for name in girls:
+    hi(name)
+    print('Next girl')
+
+Y cuando lo ejecutemos:
+
+command-line
+
+$ python3 python_intro.py
+Hi Rachel!
+Next girl
+Hi Monica!
+Next girl
+Hi Phoebe!
+Next girl
+Hi Ola!
+Next girl
+Hi You!
+Next girl
+
+
+$ python python_intro.py
+
+Como puedes ver, todo lo que coloques dentro de una sentencia for con una indentación, será repetida para cada elemento de la lista girls.
+
+Tu puedes también usar for con números usando la función range:
+
+python_intro.py
+
+for i in range(1, 6):
+    print(i)
+
+El cuál imprimirá:
+
+command-line
+
+1
+2
+3
+4
+5
+
+range es una función que crea una lista de números en serie (estos números son proporcionados por ti como parámetros).
+
+python python_intro.py
+
+
+Nota que el segundo de estos números no está incluido en la lista que regresa Python (es decir, range(1, 6) cuenta desde 1 a 5, pero no incluye el número 6). Esto es porque "range" está 
+medio-abierto, y por eso se incluye el primer valor, pero no el último.
+
+------------------
+
+¿Qué es Django? 
+
+es un framework de aplicaciones web gratuito y de código abierto escrito en Python. 
+
+Un framework web es un conjunto de componentes que te ayudan a desarrollar sitios web más fácil y rápidamente.
+
+-------------------------
+
+Instalacion de Django
+
+Entorno virtual
+
+Antes de instalar Django, instalaremos una herramienta extremadamente útil que ayudará a mantener tu entorno de desarrollo ordenado en tu computadora. Es posible saltarse este paso, pero es altamente recomendable. ¡Empezar con la mejor configuración posible te ahorrará muchos problemas en el futuro!
+
+Así que, vamos a crear un entorno virtual (también llamado un virtualenv). Virtualenv aísla tu configuración de Python/Django para cada proyecto. Esto quiere decir que cualquier cambio que hagas en un sitio web no afectará a ningún otro que estés desarrollando. Genial, ¿no?
+
+Todo lo que necesitas hacer es encontrar un directorio en el que quieras crear el virtualenv; tu directorio home, por ejemplo. En Windows, puede verse como C:\Users\Name (donde Name es el nombre de tu usuario).
+
+Para este tutorial usaremos un nuevo directorio djangogirls en tu directorio home:
+
+command-line
+
+$ mkdir djangogirls
+$ cd djangogirls
+
+Haremos un virtualenv llamado myvenv. El comando general estará en el formato:
+
+command-line
+
+$ python3 -m venv myvenv
+
+
+Virtual environment: Windows
+
+Para crear un nuevo virtualenv, necesitas abrir una terminal "command prompt" y ejecutar python -m venv myvenv. Se verá así:
+
+command-line
+
+C:\Users\Name\djangogirls> python -m venv myvenv
+
+Donde myvenv es el nombre de tu virtualenv. Puedes utilizar cualquier otro nombre, pero asegúrate de usar minúsculas y no usar espacios, acentos o caracteres especiales. También es una buena idea mantener el nombre corto. ¡Vas utilizarlo muchas vecesl!
+
+
+Trabajar con virtualenv
+
+El comando anterior creará un directorio llamado myvenv (o cualquier nombre que hayas elegido) que contiene nuestro entorno virtual (básicamente un montón de archivos y carpetas).
+
+Working with virtualenv: Windows
+
+
+Inicia el entorno virtual ejecutando:
+
+command-line
+
+C:\Users\Name\djangogirls> myvenv\Scripts\activate
+
+En mi caso: 
+
+e:\python\django>python -m venv myvenv
+
+e:\python\django>myvenv\Scripts\activate
+
+(myvenv) e:\python\django>
+
+    Nota: en 10 de Windows puedes obtener un error en Windows PowerShell que dice execution of scripts is disabled on this system. En este caso, abre otro Windows PowerShell con la opción "Ejecutar como administrador". Luego intenta escribir el siguiente comando antes de inicializar tu entorno virtual:
+
+    command-line
+
+    C:\WINDOWS\system32 > Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+       Execution Policy Change
+       The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose you to the security risks described in the about_Execution_Policies help topic at http://go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy? [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): A
+
+    NOTA: Para usuarios del popular editor VS Code, el cual viene con una terminal integrada basada en el poweshell de windows; si deseas añadir la terminal integrada, puedes arrancar el siguiente comando para activar tu entorno virtual:
+
+    $ . myvenv\Scripts\activate.ps1
+
+    La ventaja es que no tienes que cambiar las ventanas entre el editor de código y la línea de comandos.
+
+-------------------
+Working with virtualenv: Linux and OS X
+
+Inicia el entorno virtual ejecutando:
+
+command-line
+
+$ source myvenv/bin/activate
+
+¡Recuerda reemplazar myvenv con tu nombre de virtualenv que hayas elegido!
+
+    NOTA: a veces source podría no estar disponible. En ese caso trata hacerlo de esta forma:
+
+    command-line
+
+    $ . myvenv/bin/activate
+
+------------------------------------
+
+Ok, tenemos todas las dependencias importantes en su lugar. ¡Finalmente podemos instalar Django!
+
+Instalar Django
+
+Antes de hacer eso, debemos asegurarnos que tenemos la última versión de pip, el software que utilizamos para instalar Django:
+
+command-line
+
+(myvenv) ~$ python -m pip install --upgrade pip
+
+En mi caso: 
+
+Collecting pip
+  Using cached https://files.pythonhosted.org/packages/5a/4a/39400ff9b36e719bdf8f31c99fe1fa7842a42fa77432e584f707a5080063/pip-20.2.2-py2.py3-none-any.whl
+Installing collected packages: pip
+  Found existing installation: pip 18.1
+    Uninstalling pip-18.1:
+      Successfully uninstalled pip-18.1
+Successfully installed pip-20.2.2
+
+
+Instalar paquetes con un fichero de requisitos (requirements)
+
+Un fichero de requisitos (requirements) tiene una lista de dependencias que se deben instalar mediante pip install:
+
+Primero crea un archivo requirements.txt dentro de tu directorio djangogirls, usando el editor de código que instalaste previamente. Lo puedes hacer mediante abriendo un nuevo archivo en el editor de código y guardándolo como requirements.txt en el directorio djangogirls. Tu directorio se verá así:
+
+djangogirls
+└───requirements.txt
+
+Dentro del fichero djangogirls/requirements.txt deberías tener el siguiente texto:
+
+djangogirls/requirements.txt
+
+Django~=2.2.4
+
+Ahora, ejecuta pip install -r requirements.txt para instalar Django.
+
+nota propia: 
+al 30-08-20 la última versión disponible de Django es la 3.1
+
+command-line
+
+(myvenv) ~$ pip install -r requirements.txt
+Collecting Django~=2.2.4 (from -r requirements.txt (line 1))
+  Downloading Django-2.2.4-py3-none-any.whl (7.1MB)
+Installing collected packages: Django
+Successfully installed Django-2.2.4
+
+
+Installing Django: Windows
+
+    Si obtienes un error cuando llamas al pip en la plataforma de Windows, por favor verifica si el nombre de ruta de tu proyecto contiene espacios, acentos o caracteres especiales (por ejemplo, C:\Usuarios\NombreUsuario\djangogirls). Si los tiene, utiliza otro en su lugar sin espacios, acentos o caracteres especiales (sugerencia: C:\djangogirls). Crea un nuevo virtualenv en el nuevo directorio, luego borra el viejo y trata de escribir el comando anterior otra vez. (Moviendo el directorio virtualenv no funcionará debido a que usa rutas absolutas.)
+
+
+En mi caso: 
+
+(myvenv) e:\python\django>pip install -r requirements.txt
+Collecting Django~=2.2.4
+  Downloading Django-2.2.15-py3-none-any.whl (7.5 MB)
+     |████████████████████████████████| 7.5 MB 6.8 MB/s
+Collecting sqlparse>=0.2.2
+  Downloading sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+     |████████████████████████████████| 40 kB ...
+Collecting pytz
+  Downloading pytz-2020.1-py2.py3-none-any.whl (510 kB)
+     |████████████████████████████████| 510 kB 6.4 MB/s
+Installing collected packages: sqlparse, pytz, Django
+Successfully installed Django-2.2.15 pytz-2020.1 sqlparse-0.3.1
+
+
+Installing Django: Windows 8 and Windows 10
+
+    Tu línea de comando puede congelarse luego de intentar instalar Django. Si esto sucede, usa el siguiente comando:
+
+    command-line
+
+    C:\Users\Name\djangogirls> python -m pip install -r requirements.txt
+
+
+Installing Django: Linux
+
+    Si obtienes un error cuando llamas pip en Ubuntu 12.04, por favor corre python -m pip install -U --force-reinstall pip para reparar la instalación de pip en el virtualenv.
+
+
+¡Eso es todo! Ahora estás lista (por fin) para crear una aplicación Django!
+
+
+--------------------
+
+¡Tu primer proyecto en Django!
+
+
+¡Vamos a crear un blog sencillo!
+
+El primer paso es iniciar un nuevo proyecto de Django. Básicamente, significa que vamos a lanzar unos scripts proporcionados por Django que nos crearán el esqueleto de un proyecto de Django. Son solo un montón de directorios y archivos que usaremos más tarde.
+
+Los nombres de algunos archivos y directorios son muy importantes para Django. No deberías renombrar los archivos que estamos a punto de crear. Moverlos a un lugar diferente tampoco es buena idea. Django necesita mantener una cierta estructura para poder encontrar cosas importantes.
+
+    Recuerda ejecutar todo en el virtualenv. Si no ves un prefijo (myvenv) en tu consola tienes que activar tu virtualenv.
+	
+-------------------------
+Create project: OS X or Linux
+
+En MacOS o Linux deberías ejecutar el siguiente comando en la consola. no te olvides de añadir el punto . al final
+
+command-line
+
+(myvenv) ~/djangogirls$ django-admin startproject mysite .
+
+    El punto . es crucial porque le dice al script que instale Django en el directorio actual (para el cual el punto . sirve de abreviatura).
+
+    Nota Cuando escribas los comandos de arriba acuérdate de que sólo tienes que escribir la parte que empieza por django-admin. La parte de (myvenv) ~/djangogirls$ que mostramos aquí es sólo un ejemplo del mensaje que aparecerá en tu línea de comandos.
+
+--------------------------------
+
+Create project: Windows
+
+En Windows debes ejecutar el siguiente comando. (No olvides incluir el punto . al final):
+
+command-line
+
+(myvenv) C:\Users\Name\djangogirls> django-admin.exe startproject mysite .
+
+    El punto . es crucial porque le dice al script que instale Django en el directorio actual (para el cual el punto . sirve de abreviatura).
+
+    Nota Cuando teclees los comandos de arriba, recuerda que sólo tienes que escribir la parte que empieza por django-admin.exe. La parte de (myvenv) C:\Users\Name\djangogirls> que mostramos aquí es sólo un ejemplo del mensaje que aparecerá en tu línea de comandos.
+
+
+
+django-admin.py es un script que creará los archivos y directorios para ti. Ahora deberías tener una estructura de directorios parecida a esta:
+
+djangogirls
+├───manage.py
+├───mysite
+│        settings.py
+│        urls.py
+│        wsgi.py
+│        __init__.py
+└───requirements.txt
+
+
+
+
+    Nota: en tu estructura de directorios, también verás el directorio venv que creamos anteriormente.
+
+manage.py es un script que ayuda con la administración del sitio. Con él podremos iniciar un servidor web en nuestro ordenador sin necesidad de instalar nada más, entre otras cosas.
+
+El archivo settings.py contiene la configuración de tu sitio web.
+
+Recuerdas cuando hablamos de una cartera que debía comprobar dónde entregar una carta? El archivo urls.py contiene una lista de los patrones utilizados por urlresolver.
+
+Por ahora vamos a ignorar el resto de archivos porque no los vamos a cambiar. ¡Sólo acuérdate de no borrarlos accidentalmente!
+
+
+Cambiar la configuración
+
+Vamos a hacer algunos cambios en mysite/settings.py. Abre el archivo usando el editor de código que has instalado anteriormente.
+
+
+Sería bueno tener el horario correcto en nuestro sitio web. Ve a lista de Wikipedia de las zonas horarias y copia tu zona horaria (TZ) (e.g. Europa/Berlín).
+
+En settings.py, encuentra la línea que contiene TIME_ZONE y modifícala para elegir tu zona horaria. Por ejemplo:
+
+mysite/settings.py
+
+TIME_ZONE = 'Europe/Berlin'
+
+por defecto: 
+
+TIME_ZONE = 'UTC'
+
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
+
+
+Un código de idioma tiene dos partes: el idioma, p.ej. en para inglés o de para alemán, y el código de país, p.ej. de para Alemania o ch para Suiza. Si tu idioma nativo no es el inglés, puedes añadir lo siguiente para cambiar el idioma de los botones y notificaciones de Django. Así tendrás el botón "Cancel" traducido al idioma que pongas aquí. Django viene con muchas traducciones preparadas.
+
+Si quieres un idioma diferente, cambia el código de idioma cambiando la siguiente línea:
+
+mysite/settings.py
+
+LANGUAGE_CODE = 'es-es'
+
+por defecto: 
+LANGUAGE_CODE = 'en-us'
+
+
+También tenemos que añadir una ruta para archivos estáticos. (Veremos todo acerca de archivos estáticos y CSS más adelante.) Ve al final del archivo, y justo debajo de la entrada STATIC_URL, añade una nueva llamada STATIC_ROOT:
+
+mysite/settings.py
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+Cuando DEBUG es True y ALLOWED_HOST esta vacío, el host es validado contra ['localhost', '127,0.0.1', '[::1]']. Una vez despleguemos nuestra aplicación este no sera el mismo que nuestro nombre de host en PythonAnywhere así que cambiaremos la siguiente opción:
+
+mysite/settings.py
+
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+
+
+Configurar una base de datos
+
+Hay una gran variedad de opciones de bases de datos para almacenar los datos de tu sitio. Utilizaremos la que viene por defecto, sqlite3.
+
+Esta ya está configurado en esta parte de tu archivo mysite/settings.py:
+
+mysite/settings.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+Para crear una base de datos para nuestro blog, ejecutemos lo siguiente en la consola: 
+python manage.py migrate (necesitamos estar en el directorio de djangogirls que contiene el archivo manage.py). Si eso va bien, deberías ver algo así:
+
+command-line
+
+(myvenv) ~/djangogirls$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: auth, admin, contenttypes, sessions
+Running migrations:
+  Rendering model states... DONE
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying sessions.0001_initial... OK
+
+En mi caso: 
+
+
+(myvenv) e:\python\django>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying sessions.0001_initial... OK
+  
+  
+Y, ¡terminamos! ¡Es hora de iniciar el servidor web y ver si está funcionando nuestro sitio web!
+
+
+Iniciar el servidor
+
+Debes estar en el directorio que contiene el archivo manage.py (en la carpeta djangogirls). 
+En la consola, podemos iniciar el servidor web ejecutando python manage.py runserver:
+
+command-line
+
+(myvenv) ~/djangogirls$ python manage.py runserver
+
+En mi caso: 
+
+(myvenv) e:\python\django>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 30, 2020 - 00:38:25
+Django version 2.2.15, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+
+Si estás en Windows y te falla con un error UnicodeDecodeError, utiliza en su lugar este comando:
+
+command-line
+
+(myvenv) ~/djangogirls$ python manage.py runserver 0:8000
+
+
+Ahora necesitas revisar que tu website se está ejecutando. Abre tu navegador (Firefox, Chrome, Safari, Internet Explorer, o cualquiera que uses) y escribe esta dirección:
+
+browser
+
+http://127.0.0.1:8000/
+
+El navegador muestra: 
+
+¡La instalación funcionó con éxito! ¡Felicitaciones!
+
+Estás viendo esta página porque DEBUG=True está en tu archivo de configuración y no has configurado ningún URL.
+
+
+Tenga en cuenta que una ventana de comandos sólo puede ejecutar una cosa a la vez, y la ventana de comandos que abrió antes está ejecutando el servidor web. Mientras el servidor web esté corriendo y esperando solicitudes adicionales, la terminal aceptará nuevo texto pero no ejecutará nuevos comandos.
+
+
+Para escribir comandos adicionales mientras el servidor web está corriendo, abra una nueva ventana de terminal y active su virtualenv -- para revisar las instrucciones sobre cómo abrir una segunda ventana de terminal, vea Introducción a la línea de comandos. Para parar el servidor web, ve a la ventana donde se esté ejecutando y pulsa CTRL+C, las teclas Control y C a la vez ( en Windows puede que tengas que pulsar Ctrl+Break).
+
+¿Preparada para el próximo paso? ¡Es momento de crear algo de contenido!
+
+----------------------
+
+Modelos en Django
+
+Lo que queremos crear ahora es algo que almacene todas las entradas de nuestro blog. Pero para poder hacerlo tenemos que hablar un poco sobre algo llamado objetos.
+Objetos
+
+Hay un concepto en el mundo de la programación llamado programación orientada a objetos. La idea es que en lugar de escribir todo como una aburrida secuencia de instrucciones de programación podemos modelar cosas y definir cómo interactúan entre ellas.
+
+Entonces, ¿qué es un objeto? Es un conjunto de propiedades y acciones. Suena raro, pero te daremos un ejemplo.
+
+Si queremos modelar un gato crearemos un objeto Gato que tiene algunas propiedades como: color, edad, temperamento (como bueno, malo, o dormilón ;)), y dueño (este es un objeto Persona o en caso de un gato callejero, esta propiedad está vacía).
+
+Luego, el Gato tiene algunas acciones como: ronronear, arañar o alimentar (en cuyo caso daremos al gato algo de ComidaDeGato, el cual debería ser un objeto aparte con propiedades como sabor).
+
+Gato
+---------
+color
+edad
+humor
+dueño
+ronronear()
+rasguñar()
+alimentarse(comida_de_gato)
+
+
+
+ComidaDeGato
+--------
+sabor
+
+
+Básicamente se trata de describir cosas reales en el código con propiedades (llamadas propiedades del objeto) y las acciones (llamadas métodos).
+
+Y ahora, ¿cómo modelamos las entradas en el blog? Queremos construir un blog, ¿no?
+
+Necesitamos responder a la pregunta: ¿Qué es una entrada de un blog? ¿Qué propiedades debería tener?
+
+Bueno, seguro que nuestras entradas de blog necesitan un texto con su contenido y un título, ¿cierto? También sería bueno saber quién lo escribió, así que necesitamos un autor. Por último, queremos saber cuándo se creó y publicó la entrada.
+
+Post
+--------
+title
+text
+author
+created_date
+published_date
+
+¿Qué tipo de cosas podría hacerse con una entrada del blog? Sería bueno tener algún método que publique la entrada, ¿no?
+
+Así que vamos a necesitar el método publicar.
+
+Puesto que ya sabemos lo que queremos lograr, ¡podemos empezar a modelarlo en Django!
+
+
+Un modelo en Django es un tipo especial de objeto que se guarda en la base de datos. Una base de datos es una colección de datos. Es un lugar en el cual almacenarás la información sobre usuarios, tus entradas de blog, etc. Utilizaremos una base de datos SQLite para almacenar nuestros datos. Este es el adaptador de base de datos predeterminado en Django -- será suficiente para nosotros por ahora.
+
+Puedes pensar el modelo en la base de datos, como una hoja de cálculo con columnas (campos) y filas (datos).
+
+
+Crear una aplicación
+
+Para mantener todo en orden, crearemos una aplicación separada dentro de nuestro proyecto. Es muy bueno tener todo organizado desde el principio. Para crear una aplicación, necesitamos ejecutar el siguiente comando en la consola (dentro de la carpeta de djangogirls donde está el archivo manage.py):
+
+Mac OS X y Linux:
+
+(myvenv) ~/djangogirls$ python manage.py startapp blog
+
+Windows:
+
+(myvenv) C:\Users\Name\djangogirls> python manage.py startapp blog
+
+nota propia: 
+si es necesario, volvemos a activar el venv 
+
+myvenv\Scripts\activate
+
+
+Notarás que se ha creado un nuevo directorio blog y ahora contiene una cantidad de archivos. Los directorios y archivos en nuestro proyecto deberían verse así:
+
+djangogirls
+├── blog
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── db.sqlite3
+├── manage.py
+├── mysite
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── requirements.txt
+
+
+Después de crear una aplicación, también necesitamos decirle a Django que debe utilizarla. Eso se hace en el fichero mysite/settings.py -- ábrelo en el editor. Tenemos que encontrar INSTALLED_APPS y agregar una línea que contiene 'blog.apps.BlogConfig', justo por encima de ]. El producto final debe tener este aspecto:
+
+mysite/settings.py
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog.apps.BlogConfig',
+]
+
+
+Crear el modelo del Post
+
+En el archivo blog/models.py definimos todos los objetos llamados Models. 
+
+Este es un lugar en el cual definiremos nuestra entrada del blog.
+
+Abre blog/models.py en el editor, borra todo, y escribe código como este:
+
+blog/models.py
+
+from django.db import models
+from django.utils import timezone
+
+
+class Post(models.Model):
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField(
+            default=timezone.now)
+    published_date = models.DateTimeField(
+            blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.title
+
+
+Comprueba nuevamente que usas dos guiones bajos (_) en cada lado de str. Esta convención se usa en Python con mucha frecuencia y a veces también se llaman "dunder" (abreviatura de "double-underscore" o, en español, "doble guión bajo").
+
+
+Todas las líneas que comienzan con from o import son líneas para agregar algo de otros archivos. Así que en vez de copiar y pegar las mismas cosas en cada archivo, podemos incluir algunas partes con from... import ....
+
+class Post(models.Model):, esta línea define nuestro modelo (es un objeto).
+
+    class es una palabra clave que indica que estamos definiendo un objeto.
+    Post es el nombre de nuestro modelo. Podemos darle un nombre diferente (pero debemos evitar espacios en blanco y caracteres especiales). Siempre inicia el nombre de una clase con una letra mayúscula.
+    models.Model significa que Post es un modelo de Django, así Django sabe que debe guardarlo en la base de datos.
+
+
+Ahora definimos las propiedades de las que hablábamos: title, text, created_date, published_date y author. Para ello tenemos que definir el tipo de cada campo (¿es texto? ¿un número? ¿una fecha? ¿una relación con otro objeto como un User (usuario)?)
+
+    models.CharField, así es como defines un texto con un número limitado de caracteres.
+    
+	models.TextField, este es para texto largo sin límite. Suena perfecto para el contenido de la entrada del blog, ¿no?
+    
+	models.DateTimeField, este es fecha y hora.
+    
+	modelos.ForeignKey, este es una relación (link) con otro modelo.
+
+
+No vamos a explicar aquí cada pedacito de código porque nos tomaría demasiado tiempo. Deberías echar un vistazo a la documentación de Django si deseas obtener más información sobre los campos Modelo y cómo definir otras cosas distintas a las descritas anteriormente (https://docs.djangoproject.com/en/2.2/ref/models/fields/#field-types).
+
+¿Y qué sobre def publish(self):? Es exactamente el método publish que mencionábamos antes. def significa que es una función/método y publish es el nombre del método. Puedes cambiar el nombre del método, si quieres. La regla de nomenclatura es utilizar minúsculas y guiones bajos en lugar de espacios. Por ejemplo, un método que calcule el precio medio se podría llamar calcular_precio_medio.
+
+
+Los métodos suelen devolver (return, en inglés) algo. Hay un ejemplo de esto en el método __str__. En este escenario, cuando llamemos a __str__() obtendremos un texto (string) con un título de Post.
+
+También, nota que ambos def publish(self):, y def __str__(self): son indentados dentro de nuestra clase. Porque Python es sensible a los espacios en blancos, necesitamos indentar nuestros métodos dentro de la clase. De lo contrario, los métodos no pertenecen a la clase, y puedes obtener un comportamiento inesperado.
+
+
+Crear tablas para los modelos en tu base de datos
+
+El último paso aquí es agregar nuestro nuevo modelo a la base de datos. Primero tenemos que hacer saber a Django que hemos hecho cambios en nuestro modelo. (Lo acabamos de crear!) Ve a tu terminal y escribe python manage.py makemigrations blog. Se verá así:
+
+command-line
+
+(myvenv) ~/djangogirls$ python manage.py makemigrations blog
+Migrations for 'blog':
+  blog/migrations/0001_initial.py:
+
+  - Create model Post
+
+
+En mi caso: 
+
+(myvenv) E:\python\django>python manage.py makemigrations blog
+Migrations for 'blog':
+  blog\migrations\0001_initial.py
+    - Create model Post
+	
+Django preparó un archivo de migración que ahora tenemos que aplicar a nuestra base de datos. 
+
+Escribe python manage.py migrate blog 
+
+y el resultado debería ser:
+
+command-line
+
+(myvenv) ~/djangogirls$ python manage.py migrate blog
+Operations to perform:
+  Apply all migrations: blog
+Running migrations:
+  Applying blog.0001_initial... OK
+
+¡Hurra! ¡Nuestro modelo Post ya está en nuestra base de datos! Estaría bien verlo, ¿no? ¡Salta al siguiente capítulo para ver qué aspecto tiene tu Post!
+
+En mi caso: 
+
+(myvenv) E:\python\django>python manage.py migrate blog
+Operations to perform:
+  Apply all migrations: blog
+Running migrations:
+  Applying blog.0001_initial... OK
+  
+-------------------
+
+Administrador de Django
+
+Administrador de Django
+
+Para agregar, editar y borrar los posts que hemos modelado, usaremos el administrador (admin) de Django.
+
+Abre el fichero blog/admin.py en el editor y reemplaza su contenido con esto:
+
+blog/admin.py
+
+from django.contrib import admin
+from .models import Post
+
+admin.site.register(Post)
+
+
+Como puedes ver, importamos (incluimos) el modelo Post definido en el capítulo anterior. 
+
+Para hacer nuestro modelo visible en la página del administrador, tenemos que registrar el modelo con admin.site.register(Post).
+
+Ok, es hora de ver nuestro modelo Post. 
+
+Recuerda ejecutar python manage.py runserver en la consola para correr el servidor web. 
+
+Ve a tu navegador y escribe la dirección
+http://127.0.0.1:8000/admin/ 
+Verás una página de inicio de sesión 
+
+Para iniciar sesión, deberás crear un superusuario (superuser), que es un usuario que tiene control sobre todo el sitio. 
+
+Vuelve a la línea de comandos, escribe 
+
+python manage.py createsuperuser 
+y pulsa enter.
+
+    Recuerda, para escribir comandos mientras el servidor web está funcionando, abre una nueva terminal y activa el virtualenv. Revisamos cómo escribir nuevos comandos en el capítulo Tu primer proyecto de Django!, al inicio de la sección Iniciando el servidor web.
+
+Mac OS X o Linux:
+
+(myvenv) ~/djangogirls$ python manage.py createsuperuser
+
+Windows:
+
+(myvenv) C:\Users\Name\djangogirls> python manage.py createsuperuser
+
+
+Cuando te lo pida, escribe tu nombre de usuario (en minúscula, sin espacios), email y contraseña. No te preocupes si no puedes ver la contraseña que estás tecleando - así es como debe ser. Tecléalo y pulsa intro para continuar. Luego, verás algo así (donde username y email serán los que escribiste anteriormente):
+
+Username: ola
+Email address: ola@example.com
+Password:
+Password (again):
+Superuser created successfully.
+
+En mi caso: 
+admin
+sitiosmayan@gmail.com
+django2020
+django2020
+
+Vuelve a tu navegador. Entra con las credenciales de super usuario que escogiste; verás el panel de administrador de Django.
+
+Ve a 'Posts' y curiosea un poco. Añade cinco o seis publicaciones en tu blog. 
+
+No te preocupes por el contenido -- solo será visible para ti en tu ordenador -- puedes copiar y pegar texto de este tutorial para ir más rápido. :)
+
+Asegúrate de que al menos dos o tres posts (pero no todos) tengan la fecha de publicación definida. Esto será muy poderoso después.
+
+Si desea saber más sobre el administrador de Django, debe consultar la documentación de Django: https://docs.djangoproject.com/en/2.2/ref/contrib/admin/
+
+---------------------
+
+¡Despliega!
+
+    Nota El siguiente capítulo puede ser, a veces, un poco difícil de seguir. Ten paciencia y acábalo. El despliegue es una parte importante del proceso en el desarrollo de un sitio web.
+	
+Hasta ahora, tu sitio web sólo está disponible en tu ordenador. ¡Ahora aprenderás como desplegarlo! El despliegue es el proceso de publicar tu aplicación en internet para que la gente pueda acceder y ver tu sitio web. :)
+
+Como ya has aprendido, un sitio web tiene que estar en un servidor. Hay muchos proveedores de servidores disponibles en internet, nosotros vamos a usar PythonAnywhere. PythonAnywhere es gratuito para aplicaciones pequeñas que no tienen muchos visitantes, y con eso tendrás más que suficiente por ahora.
+
+El otro servicio externo que vamos a utilizar es GitHub, un servicio de almacenamiento de código. 
+
+Estos tres lugares serán importantes para ti. 
+
+Tu ordenador local será el lugar donde desarrollas y pruebas. 
+
+Cuando estés contento con los cambios, subirás una versión de tu programa a GitHub. 
+
+Tu sitio web estará en PythonAnywhere y para actualizarlo descargarás la última versión de tu código desde GitHub.
+
+
+Instalar Git
+
+Git es un "sistema de control de versiones" que utilizan muchos programadores. Este software puede seguir los cambios realizados en archivos a lo largo del tiempo de forma que más tarde puedas volver a cualquier versión anterior. 
+
+Installing Git: Windows
+
+Puedes descargar Git desde git-scm.com. Puedes hacer click en "Next" en todos los pasos excepto en dos: cuando se te pregunte que selecciones tu editor, selecciona Nano, y en el paso "adjusting your PATH environment", selecciona "Use Git and optional Unix tools from the Windows Command Prompt" (la última opción). Aparte de eso, los valores por defecto son correctos. "Checkout Windows-style, commit Unix-style line endings" tampoco necesita corrección.
+
+No olvides reiniciar el Símbolo del Sistema o el PowerShell una vez que la instalación se complete con éxito. 
+
+-------------------
+Installing Git: Debian or Ubuntu
+
+command-line
+
+$ sudo apt install git
+
+-------------------------
+
+
+Crear nuestro repositorio Git
+
+Git sigue los cambios realizados a un grupo determinado de archivos en lo que llamamos un repositorio de código (abreviado "repo"). Vamos a crear uno para nuestro proyecto. Abre la consola y ejecuta los siguientes comandos en el directorio de djangogirls:
+
+    Nota Comprueba en qué directorio estás ahora mismo (es decir, el directorio de trabajo actual) con el comando pwd (OSX/Linux) o cd (Windows) antes de inicializar el repositorio. Deberías estar en la carpeta djangogirls.
+
+command-line
+
+$ git init
+Initialized empty Git repository in ~/djangogirls/.git/
+$ git config --global user.name "Tu nombre"
+$ git config --global user.email tu@ejemplo.com
+
+$ git config --global user.email sitiosmayan@gmail.com
+
+Inicializar el repositorio de git es algo que sólo tenemos que hacer una vez por proyecto (y no tendrás que volver a teclear tu nombre de usuario y correo electrónico nunca más).
+
+Git llevará un seguimiento de los cambios realizados en todos los archivos y carpetas en este directorio, pero hay algunos archivos que queremos que ignore. Esto lo hacemos creando un archivo llamado .gitignore en el directorio base. Abre tu editor y crea un nuevo archivo con el siguiente contenido:
+
+.gitignore
+
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
+
+Y guárdalo como .gitignore en la carpeta "djangogirls".
+----------------------
+
+30-08-20
+
+15:45 - 
